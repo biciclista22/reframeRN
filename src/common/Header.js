@@ -33,7 +33,7 @@ const styles = {
   textStyle: {
     fontSize: 25,
     color: 'navy',
-    fontFamily: 'LobsterTwo'
+    // fontFamily: 'LobsterTwo'
   }
 };
 
