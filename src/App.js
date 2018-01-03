@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <View>
-        <Header headerText="REFRAME"/>
+        <Header headerText="Reframe"/>
       </View>
     );
   };
