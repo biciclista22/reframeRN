@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { Header } from './common/Header';
-import { Button } from './common/Button';
+import { Header } from './components/common';
+import EntryForm from './components/EntryForm';
 
 
 class App extends Component {
@@ -9,6 +9,7 @@ class App extends Component {
     return (
       <View>
         <Header headerText="Reframe"/>
+        <EntryForm />
       </View>
     );
   };
