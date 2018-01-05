@@ -8,19 +8,21 @@ class EntryForm extends Component {
   render() {
     return (
       <Card>
+
       <CardSection>
         <TextInput
         value={this.state.text}
         onChangeText={text => this.setState({text})}
-        style={{ height: 100, width: 100}}
+        style={{ height: 100, width: 350}}
         multiline={true}
         autoCorrect={true}
-        defaultValue='PassMeIn'
+        placeholder='Start reframing...'
         />
       </CardSection>
+
       <CardSection>
         <Button>
-          Log Entry
+          Log it!
         </Button>
       </CardSection>
 
