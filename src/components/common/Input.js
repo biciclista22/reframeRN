@@ -5,12 +5,12 @@ const Input = ({ label, value, onChangeText, placeholder }) => {
   const { inputStyle, labelStyle, containerStyle } = styles;
 
   return (
-    <View style={containerStyle}>
-      <Text style={labelStyle}>{label}</Text>
+    <View style={ containerStyle }>
+      <Text style={ labelStyle }>{label}</Text>
       <TextInput
         placeholder={placeholder}
         autoCorrect={false}
-        style={inputStyle}
+        style={ inputStyle }
         value={value}
         onChangeText={onChangeText}
       />
@@ -32,8 +32,8 @@ const styles = {
     paddingLeft: 20,
     flex: 1
   },
-  constainerStyle: {
-    height: 40,
+  containerStyle: {
+    height: 50,
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center'
