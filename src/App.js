@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { Header } from './components/common';
+import { Header, Input } from './components/common';
 import EntryForm from './components/EntryForm';
 import LoginForm from './components/LoginForm';
 
