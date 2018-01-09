@@ -9,13 +9,13 @@ class LoginForm extends Component {
   createUser() {
     axios({
       method: 'post',
-      url: 'http://localhost:3000/entries',
+      url: 'http://localhost:3000/users',
       data: {
         user: {name: this.state.email, email: this.state.email, password: this.state.password}
       }
     })
   }
-  
+
   render() {
     return (
       <Card>
@@ -39,8 +39,8 @@ class LoginForm extends Component {
         </CardSection>
 
         <CardSection>
-          <Button>
-            Log In
+          <Button onPress={this.createUser.bind(this)}>
+            Create Account
           </Button>
         </CardSection>
       </Card>
