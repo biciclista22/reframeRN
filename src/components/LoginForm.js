@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 import { Button, Card, CardSection, Input } from './common';
+import axios from 'axios';
 
 class LoginForm extends Component {
 
   state = { email: '', password: ''};
 
-
+  createUser() {
+    axios({
+      method: 'post',
+      url: 'http://localhost:3000/entries',
+      data: {
+        user: {name: this.state.email, email: this.state.email, password: this.state.password}
+      }
+    })
+  }
+  
   render() {
     return (
       <Card>
