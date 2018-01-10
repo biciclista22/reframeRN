@@ -15,9 +15,13 @@ class EntryForm extends Component {
       data: {
         entry: {text: this.state.text}
       }
-    })
+    });
+    this.setState({ text: ''})
   }
 
+  // successEntry() {
+  //   this.setState({ text: ''})
+  // }
   //   axios.post('localhost:3000/entries', {
   //     entry: {text: this.state.text}})
   //     .then(response => (console.log(response)));
