@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import { Header, Input } from './components/common';
 import EntryForm from './components/EntryForm';
 import LoginForm from './components/LoginForm';
@@ -7,11 +7,11 @@ import LoginForm from './components/LoginForm';
 class App extends Component {
   render() {
     return (
-      <View>
+      <ScrollView>
         <Header headerText="Reframe"/>
         <LoginForm />
         <EntryForm />
-      </View>
+      </ScrollView>
     );
   };
 }
