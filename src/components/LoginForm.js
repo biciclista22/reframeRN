@@ -12,14 +12,17 @@ class LoginForm extends Component {
 
   async storeUserId(userId) {
     userIdString = JSON.stringify(userId)
-    // console.log("ID was stored successfully");
+
     try {
       AsyncStorage.setItem(USER_ID, userIdString)
       console.log("ID was stored successfully");
+      // var value = await AsyncStorage.getItem(USER_ID)
+      // console.log(value);
     } catch(error) {
       console.log("Something went wrong");
     }
   }
+
 
   async onRegisterPressed() {
     try {
