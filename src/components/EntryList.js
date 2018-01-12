@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 import axios from 'axios';
+import EntryDetail from './EntryDetail';
 
 class EntryList extends Component {
   state = { entries: [] }
@@ -10,11 +11,18 @@ class EntryList extends Component {
     .then(response => this.setState({ entries: response.data }));
   }
 
+  renderEntries() {
+    return this.state.entries.map(entry =>
+      < EntryDetail key={entry.id} entry={entry}/>
+    );
+  }
+
   render() {
+    console.log(this.state.entries);
     return (
-      <View>
-      <Text> Past Entries List!!! </Text>
-      </View>
+      <ScrollView>
+        {this.renderEntries()}
+      </ScrollView>
     );
   }
 }
