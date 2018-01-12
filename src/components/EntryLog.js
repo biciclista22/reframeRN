@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { TextInput, AsyncStorage } from 'react-native';
-import { Button, Card, CardSection, View, Text } from './common';
+import { View, Text, AsyncStorage } from 'react-native';
+import { Button, Card, CardSection } from './common';
 import axios from 'axios';
+import EntryList from './EntryList';
 
 class EntryLog extends Component {
   render() {
     return(
-      <View>
-      <Text>Hi</Text>
-      </View>
+      <EntryList />
     );
   };
 }

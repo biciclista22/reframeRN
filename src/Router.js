@@ -8,18 +8,25 @@ import EntryLog from './components/EntryLog';
 const RouterComponent = () => {
   return (
     <Router>
+
       <Scene key="root" hideNavBar>
         <Scene key="auth">
           <Scene key="login" component={LoginForm} title="PleaseLogin" initial/>
         </Scene>
+
         <Scene key="main">
+
           <Scene
-            rightTitle="View Entries"
-            onRight={() => {  console.log('right!');}}
+            rightTitle="Past Reframes"
+            onRight={() => Actions.entryLog()}
             key="entryForm"
             component={EntryForm}
-            title="Entry" />
-          <Scene key="entryLog" component={EntryLog} title="Log"/>
+            title="Entry"
+            initial
+            />
+
+          <Scene key="entryLog" component={EntryLog} title="Past Reframes"/>
+
         </Scene>
       </Scene>
     </Router>
