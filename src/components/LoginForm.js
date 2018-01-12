@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { AsyncStorage } from 'react-native';
 import { Button, Card, CardSection, Input, Spinner } from './common';
 import axios from 'axios';
+import { Actions } from 'react-native-router-flux';
 
 const USER_ID = 'userId';
 
@@ -49,6 +50,7 @@ class LoginForm extends Component {
 
         //On success we will store the access_token in the AsyncStorage
         this.storeUserId(userId);
+        Actions.main();
         // this.redirect('home');
       } else {
         //Handle error
