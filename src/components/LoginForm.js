@@ -23,7 +23,6 @@ class LoginForm extends Component {
     }
   }
 
-
   async onRegisterPressed() {
     try {
       let response = await fetch('http://localhost:3000/users', {
@@ -34,7 +33,7 @@ class LoginForm extends Component {
         },
         body: JSON.stringify({
           user:{
-            name: this.state.name,
+            name: this.state.email,
             email: this.state.email,
             password: this.state.password,
           }
