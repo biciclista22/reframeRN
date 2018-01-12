@@ -3,6 +3,7 @@ import { ScrollView } from 'react-native';
 import { Header, Input } from './components/common';
 import EntryForm from './components/EntryForm';
 import LoginForm from './components/LoginForm';
+import USER_ID from './global.js';
 
 class App extends Component {
   render() {
