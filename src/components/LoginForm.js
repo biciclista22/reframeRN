@@ -9,7 +9,7 @@ const USER_ID = 'userId';
 
 class LoginForm extends Component {
 
-  state = { email: '', password: '', error: '', loading: false};
+  state = { email: '', password: '', error: [], loading: false};
 
   async storeUserId(userId) {
     userIdString = JSON.stringify(userId)
