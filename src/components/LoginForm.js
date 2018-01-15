@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AsyncStorage } from 'react-native';
-import { Button, Card, CardSection, Input, Spinner } from './common';
+import { Button, Card, CardSection, Input, Spinner, Errors } from './common';
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 
@@ -9,7 +9,7 @@ const USER_ID = 'userId';
 
 class LoginForm extends Component {
 
-  state = { email: '', password: '', error: [], loading: false};
+  state = { email: '', password: '', errors: [], loading: false};
 
   async storeUserId(userId) {
     userIdString = JSON.stringify(userId)
@@ -42,7 +42,7 @@ class LoginForm extends Component {
       });
 
       let res = await response.text();
-
+      // console.log('res is:' + res);
       //Handle success
       if (response.status >= 200 && response.status < 300) {
         var json = JSON.parse(response._bodyText);
@@ -54,49 +54,42 @@ class LoginForm extends Component {
         // this.redirect('home');
       } else {
         //Handle error
-        let error = res;
-        throw error;
+        let errors = res;
+        throw errors;
       }
 
     } catch(errors) {
+      console.log("catch errors:" + errors);
+      let formErrors = JSON.parse(errors);
+      let errorsArray = [];
 
+      for(var key in formErrors) {
+        //If array is bigger than one we need to split it.
+        if(formErrors[key].length > 1) {
+          console.log(key);
+            formErrors[key].map(error => errorsArray.push(`${key} ${error}`));
+        } else {
+            errorsArray.push(`${key} ${formErrors[key]}`);
+        }
+      }
+      this.setState({errors: errorsArray})
+      console.log(this.state.errors);
     }
 
   }
-
-  // createUser() {
-  //
-  //   const { email, password, user_id } = this.state;
-  //
-  //   this.setState({error: '', user_id: '' loading: true });
-  //
-  //   axios({
-  //     method: 'post',
-  //     url: 'http://localhost:3000/users',
-  //     data: {
-  //       user: {name: this.state.email, email: this.state.email, user_id: this.state.user_id}
-  //     }
-  //     // }).catch( () => {
-  //     // need to add conditional statement to check if it doesn't already exist, create user
-  //     // also want to chain a .then(this.onLoginSuccess.bind(this))
-  //     // }).catch( () => {
-  //     // need to show error messaging if the email exists but the password doesn't
-  //     // here can instead call .catch(this.onLoginFail.bind(this));
-  //   }).then(this.onLoginSuccess.bind(this))
-  // }
 
   onLoginSuccess() {
     this.setState({
       email: '',
       password: '',
       loading: false,
-      error: ''
+      errors: ''
     });
   }
 
   onLoginFail() {
     this.setState({
-      error: 'Authentication Failed.',
+      // errors: 'Authentication Failed.',
       loading: false
     })
   }
@@ -138,6 +131,9 @@ class LoginForm extends Component {
       <CardSection>
       {this.renderButton()}
       </CardSection>
+
+      <Errors errors={this.state.errors}/>
+
       </Card>
     );
   }
