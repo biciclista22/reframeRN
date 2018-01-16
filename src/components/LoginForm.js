@@ -42,7 +42,6 @@ class LoginForm extends Component {
       });
 
       let res = await response.text();
-      // console.log('res is:' + res);
       //Handle success
       if (response.status >= 200 && response.status < 300) {
         var json = JSON.parse(response._bodyText);
@@ -51,7 +50,6 @@ class LoginForm extends Component {
         //On success we will store the access_token in the AsyncStorage
         this.storeUserId(userId);
         Actions.main();
-        // this.redirect('home');
       } else {
         //Handle error
         let errors = res;
@@ -59,21 +57,17 @@ class LoginForm extends Component {
       }
 
     } catch(errors) {
-      console.log("catch errors:" + errors);
       let formErrors = JSON.parse(errors);
       let errorsArray = [];
 
-      for(var key in formErrors) {
-        //If array is bigger than one we need to split it.
-        if(formErrors[key].length > 1) {
-          console.log(key);
-            formErrors[key].map(error => errorsArray.push(`${key} ${error}`));
+      for(var key in formErrors.errors) {
+        if(formErrors.errors[key].length > 1) {
+            formErrors.errors[key].map(error => errorsArray.push(`${key} ${error}`));
         } else {
-            errorsArray.push(`${key} ${formErrors[key]}`);
+            errorsArray.push(`${key} ${formErrors.errors[key]}`);
         }
       }
       this.setState({errors: errorsArray})
-      console.log(this.state.errors);
     }
 
   }

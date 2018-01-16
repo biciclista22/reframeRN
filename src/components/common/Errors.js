@@ -5,7 +5,8 @@ import { View, Text} from 'react-native';
 const Errors = (props) => {
   return (
     <View>
-      {props.errors.map((error, i) => <Text key={i} style={styles.errorStyle}> {error} </Text>)}
+      {props.errors.map((error, i) =>
+        <Text key={i} style={styles.errorStyle}> {error} </Text>)}
     </View>
   );
 }
