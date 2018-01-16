@@ -34,7 +34,7 @@ class LoginForm extends Component {
         },
         body: JSON.stringify({
           user:{
-            name: this.state.email,
+            name: this.state.email.downcase,
             email: this.state.email,
             password: this.state.password,
           }
