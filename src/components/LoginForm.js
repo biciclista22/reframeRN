@@ -126,6 +126,10 @@ class LoginForm extends Component {
       {this.renderButton()}
       </CardSection>
 
+      <CardSection>
+      <Button>Log In</Button>
+      </CardSection>
+
       <Errors errors={this.state.errors}/>
 
       </Card>
