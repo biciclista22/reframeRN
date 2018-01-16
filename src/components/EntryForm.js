@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { TextInput, AsyncStorage } from 'react-native';
 import { Button, Card, CardSection } from './common';
 import axios from 'axios';
+import { Actions} from 'react-native-router-flux';
 
 
 class EntryForm extends Component {
@@ -24,6 +25,10 @@ class EntryForm extends Component {
     });
   }
 
+  userLogout() {
+    Actions.auth();
+  }
+
   render() {
     return (
       <Card>
@@ -44,6 +49,12 @@ class EntryForm extends Component {
       <CardSection>
       <Button onPress={this.postEntry.bind(this)} >
       Log it!
+      </Button>
+      </CardSection>
+
+      <CardSection>
+      <Button onPress={this.userLogout}>
+      Sign out!
       </Button>
       </CardSection>
 
