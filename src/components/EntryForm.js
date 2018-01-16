@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextInput, AsyncStorage } from 'react-native';
+import { Alert, TextInput, AsyncStorage } from 'react-native';
 import { Button, Card, CardSection } from './common';
 import axios from 'axios';
 import { Actions} from 'react-native-router-flux';
@@ -25,8 +25,15 @@ class EntryForm extends Component {
     });
   }
 
-  userLogout() {
-    Actions.auth();
+  async userLogout() {
+    try {
+      AsyncStorage.removeItem(USER_ID);
+      Alert.alert('Logout Success!');
+      console.log(USER_ID);
+      Actions.auth();
+    } catch (error) {
+      console.log('AsyncStorage error: ' + error.message);
+    }
   }
 
   render() {
