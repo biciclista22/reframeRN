@@ -18,8 +18,6 @@ class EntryList extends Component {
         .then(response => this.setState({ entries: response.data }));
       }
     });
-
-
   }
 
 

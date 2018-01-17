@@ -26,7 +26,7 @@ class LoginForm extends Component {
 
   async onRegisterPressed() {
     try {
-      let response = await fetch('http://localhost:3000/users', {
+      let response = await fetch('http://localhost:3000/users/signup', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -40,9 +40,12 @@ class LoginForm extends Component {
           }
         })
       });
+      // console.log(response);
 
       let res = await response.text();
-      //Handle success
+
+      // console.log(res);
+      // Handle success
       if (response.status >= 200 && response.status < 300) {
         var json = JSON.parse(response._bodyText);
         let userId = json.user_id;
@@ -62,79 +65,208 @@ class LoginForm extends Component {
 
       for(var key in formErrors.errors) {
         if(formErrors.errors[key].length > 1) {
-            formErrors.errors[key].map(error => errorsArray.push(`${key} ${error}`));
+          formErrors.errors[key].map(error => errorsArray.push(`${key} ${error}`));
         } else {
-            errorsArray.push(`${key} ${formErrors.errors[key]}`);
+          errorsArray.push(`${key} ${formErrors.errors[key]}`);
         }
       }
       this.setState({errors: errorsArray})
     }
-
   }
 
-  onLoginSuccess() {
-    this.setState({
-      email: '',
-      password: '',
-      loading: false,
-      errors: ''
-    });
-  }
+  async APILoginCall() {
+    console.log('pressing button and in async checkLoginAccount');
 
-  onLoginFail() {
-    this.setState({
-      // errors: 'Authentication Failed.',
-      loading: false
+    let response = await axios.get('http://localhost:3000/users/login', {
+      params: {
+        email: this.state.email
+      }
     })
+    console.log('in the checkloginaccount response:')
+    console.log(response);
+    return response;
+    // const json = await response.json();
+
   }
 
-  renderButton() {
-    if (this.state.loading) {
-      return < Spinner size="small" />;
+  onLogin() {
+    this.APILoginCall()
+    .then((response) => {
+      console.log('in the then portion of the promise');
+      console.log(response);
+
+      if (response.status >= 200 && response.status < 300) {
+        console.log('the response.data.user_id');
+        console.log(response.data.user_id);
+        let userId = response.data.user_id;
+
+        this.storeUserId(userId);
+        console.log(USER_ID);
+        Actions.main(); }
+        else {
+          console.log(response.data.errors);
+        }
+      })
     }
 
-    return (
-      <Button onPress={this.onRegisterPressed.bind(this)}>
-      Create Account
-      </Button>
-    )
+
+    // async onLogin() {
+    //   let response = this.APILoginCall();
+    //
+    //   try {
+    //     console.log(response);
+    //
+    //     if (response.status >= 200 && response.status < 300) {
+    //       console.log('the response.data.user_id');
+    //       console.log(response.data.user_id);
+    //       let json = JSON.parse(response.data);
+    //       let userId = json.user_id;
+    //
+    //       //On success we will store the access_token in the AsyncStorage
+    //       this.storeUserId(userId);
+    //       Actions.main();
+    //     } else {
+    //       console.log('error');
+    //       let errors = res;
+    //       throw errors;
+    //     }
+    //   } catch(errors) {
+    //     let formErrors = JSON.parse(errors);
+    //     let errorsArray = [];
+    //
+    //     for(var key in formErrors.errors) {
+    //       if(formErrors.errors[key].length > 1) {
+    //         formErrors.errors[key].map(error => errorsArray.push(`${key} ${error}`));
+    //       } else {
+    //         errorsArray.push(`${key} ${formErrors.errors[key]}`);
+    //       }
+    //     }
+    //     this.setState({errors: errorsArray})
+    //   }
+    // }
+
+    // let response = await fetch("http://localhost:3000/users/login", {
+    //   method: 'GET',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     user:{
+    //       // name: this.state.email.downcase,
+    //       email: this.state.email,
+    //       // password: this.state.password,
+    //     }
+    //   })
+    // });
+
+    // axios({
+    //   method: 'get',
+    //   url: 'http://localhost:3000/users/login',
+    //   data: {
+    //     user: {name: this.state.email, email: this.state.email}
+    //   }
+    // })
+    // .then(function (response) {
+    //   console.log('you got to the response...');
+    //   console.log(response);
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
+
+    // let response = axios({
+    //   method: 'get',
+    //   url: 'http://localhost:3000/users/login',
+    //   data: {
+    //     user: {name: this.state.email, email: this.state.email}
+    //   }
+    // })
+    //
+    // console.log('you got to the response...');
+    // console.log(response);
+
+    // let textRes = response.text();
+    // console.log('this is the res' + textRes);
+
+
+    onLoginSuccess() {
+      this.setState({
+        email: '',
+        password: '',
+        loading: false,
+        errors: ''
+      });
+    }
+
+    onLoginFail() {
+      this.setState({
+        // errors: 'Authentication Failed.',
+        loading: false
+      })
+    }
+
+    renderCreateAccountButton() {
+      if (this.state.loading) {
+        return < Spinner size="small" />;
+      }
+
+      return (
+        <Button onPress={this.onRegisterPressed.bind(this)}>
+        Create Account
+        </Button>
+      )
+    }
+
+    renderSignUpButton() {
+      if (this.state.loading) {
+        return < Spinner size="small" />;
+      }
+
+      return (
+        <Button onPress={this.onLogin.bind(this)}>
+        Log In
+        </Button>
+      )
+    }
+
+    render() {
+      return (
+        <Card>
+        <CardSection>
+        <Input
+        placeholder="user@gmail.com"
+        label="Email"
+        value={this.state.email}
+        onChangeText={email => this.setState({ email })}
+        />
+        </CardSection>
+
+        <CardSection>
+        <Input
+        secureTextEntry={true}
+        placeholder="password"
+        label="Password"
+        value={this.state.password}
+        onChangeText={password => this.setState({ password })}
+        />
+        </CardSection>
+
+        <CardSection>
+        {this.renderCreateAccountButton()}
+        </CardSection>
+
+        <CardSection>
+        <Button onPress={this.onLogin.bind(this)}>
+        Log In
+        </Button>
+        </CardSection>
+
+        <Errors errors={this.state.errors}/>
+
+        </Card>
+      );
+    }
   }
 
-  render() {
-    return (
-      <Card>
-      <CardSection>
-      <Input
-      placeholder="user@gmail.com"
-      label="Email"
-      value={this.state.email}
-      onChangeText={email => this.setState({ email })}
-      />
-      </CardSection>
-
-      <CardSection>
-      <Input
-      secureTextEntry={true}
-      placeholder="password"
-      label="Password"
-      value={this.state.password}
-      onChangeText={password => this.setState({ password })}
-      />
-      </CardSection>
-
-      <CardSection>
-      {this.renderButton()}
-      </CardSection>
-
-      <CardSection>
-      <Button>Log In</Button>
-      </CardSection>
-
-      <Errors errors={this.state.errors}/>
-
-      </Card>
-    );
-  }
-}
-
-export default LoginForm;
+  export default LoginForm;
