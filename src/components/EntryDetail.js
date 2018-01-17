@@ -7,7 +7,7 @@ const EntryDetail = (props) => {
   return (
     <Card>
       <CardSection>
-        <Text>{props.entry.created_at}</Text>
+        <Text>{props.entry.date}</Text>
       </CardSection>
       <CardSection>
         <Text>{props.entry.text}</Text>
