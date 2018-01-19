@@ -10,6 +10,10 @@ class EntryForm extends Component {
 
   postEntry() {
     console.log("hi");
+    if (this.state.text === '') {
+      return Alert.alert('Woops! Entry appears to be empty.')
+    }
+
     AsyncStorage.getItem(USER_ID,  (error, result) => {
       if (result) {
         let value = parseInt(result);
@@ -29,7 +33,7 @@ class EntryForm extends Component {
     try {
       AsyncStorage.removeItem(USER_ID);
       Alert.alert('Logout Success!');
-      console.log(USER_ID);
+      // console.log(USER_ID);
       Actions.auth();
     } catch (error) {
       console.log('AsyncStorage error: ' + error.message);
