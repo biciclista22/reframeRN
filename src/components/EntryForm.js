@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
-import { Alert, TextInput, AsyncStorage } from 'react-native';
-import { Button, Card, CardSection } from './common';
+import { Alert, TextInput, AsyncStorage, Text, View } from 'react-native';
+import { Button, Card, CardSection, Quote } from './common';
 import axios from 'axios';
 import { Actions} from 'react-native-router-flux';
 
 
 class EntryForm extends Component {
-  state = { text: ''};
+  state = { text: '', quote: '', author: ''};
+
+  componentDidMount() {
+    console.log('in the quote component and trying to mount');
+    this.getQuote();
+  }
 
   postEntry() {
     console.log("hi");
@@ -29,6 +34,22 @@ class EntryForm extends Component {
     });
   }
 
+  async getQuote() {
+    console.log('in that quote');
+    console.log('this is the call url http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en');
+    try {
+      const apiQuote = await axios.get('https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en');
+      console.log(apiQuote);
+      this.setState({ quote: apiQuote.data.quoteText, author:apiQuote.data.quoteAuthor })
+    } catch(error) {
+      console.log('a try');
+    }
+  }
+
+  renderQuote() {
+    return <Text>{this.state.quote} - {this.state.author}</Text>
+  }
+
   async userLogout() {
     try {
       AsyncStorage.removeItem(USER_ID);
@@ -40,9 +61,18 @@ class EntryForm extends Component {
     }
   }
 
+  buttonFunction() {
+    this.postEntry();
+    this.getQuote();
+  }
+
   render() {
     return (
       <Card>
+
+      <CardSection>
+      <View>{this.renderQuote()}</View>
+      </CardSection>
 
       <CardSection>
       <TextInput
@@ -58,7 +88,7 @@ class EntryForm extends Component {
       </CardSection>
 
       <CardSection>
-      <Button onPress={this.postEntry.bind(this)} >
+      <Button onPress={this.buttonFunction.bind(this)} >
       Log it!
       </Button>
       </CardSection>
