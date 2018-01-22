@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, Text, AsyncStorage } from 'react-native';
+import { ScrollView, Text, AsyncStorage, View, Image } from 'react-native';
 import axios from 'axios';
 import EntryDetail from './EntryDetail';
 
@@ -50,9 +50,19 @@ class EntryList extends Component {
 
     render() {
       return (
+        <View>
+        <Image
+        style={{
+          flex: 1,
+          position: 'absolute',
+          resizeMode: 'contain',
+        }}
+        source={require('../../background1000.png')}
+        />
         <ScrollView>
         {this.renderEntries()}
         </ScrollView>
+        </View>
       );
     }
   }

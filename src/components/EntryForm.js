@@ -32,6 +32,7 @@ class EntryForm extends Component {
         this.setState({ text: ''})
       }
     });
+    Alert.alert('Nice Reframe!')
   }
 
   async getQuote() {
@@ -47,7 +48,12 @@ class EntryForm extends Component {
   }
 
   renderQuote() {
-    return <Text style={{padding: 15}}>{this.state.quote}{"\n"} - {this.state.author}</Text>
+    return <Text style={{padding: 15}}> {this.state.quote} </Text>
+
+  }
+
+  renderAuthor() {
+    return <Text style={{paddingRight: 25, paddingBottom: 10, textAlign: 'right'}}> - {this.state.author}</Text>
   }
 
   async userLogout() {
@@ -81,7 +87,12 @@ class EntryForm extends Component {
       <Card>
 
 
-      <View style={styles.quote}>{this.renderQuote()}</View>
+      <View style={styles.quote}>
+        {this.renderQuote()}
+        {this.renderAuthor()}
+      </View>
+
+      <View/>
 
 
       <CardSection>
@@ -117,7 +128,8 @@ class EntryForm extends Component {
 
 styles = {
   quote: {
-    // backgroundColor: 'clear',
+    backgroundColor: 'transparent',
+    paddingBottom: 30
 
   }
 }
