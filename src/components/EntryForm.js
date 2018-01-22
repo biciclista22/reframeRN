@@ -55,7 +55,7 @@ class EntryForm extends Component {
       AsyncStorage.removeItem(USER_ID);
       Alert.alert('Logout Success!');
       // console.log(USER_ID);
-      Actions.auth();
+      Actions.login();
     } catch (error) {
       console.log('AsyncStorage error: ' + error.message);
     }
