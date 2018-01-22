@@ -88,7 +88,7 @@ const styles = {
     flexDirection: 'row',
     // justifyContent: 'flex-end',
     alignItems: 'flex-end',
-    height: 550
+    height: 650
   },
   buttonViewInner: {
     backgroundColor: '#D7EAF2',
@@ -120,7 +120,7 @@ const styles = {
     textShadowColor: 'gray'
   },
   closeButton: {
-    
+
   }
 };
 
