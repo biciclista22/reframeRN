@@ -26,7 +26,7 @@ class Welcome extends Component {
   render() {
     return (
 
-    <View>
+      <View>
       <Image
       style={{
         flex: 1,
@@ -56,8 +56,8 @@ class Welcome extends Component {
       </Image>
       <View style={styles.innerContainer}>
 
-      <Text style={styles.text}>Reframe is a gratitude journal app, an opportunity to reframe your day, the events and people that make it special.!!!</Text>
-      <Text style={styles.text}>Reframe is a gratitude journal app that keeps things simple. Create an account or login and start writing.</Text>
+      <Text style={styles.text}>Reframe is a gratitude journal app, an opportunity to reframe your day, the events and people that make it special!!!</Text>
+      <Text style={styles.text}>Keep it simple. Create an account or login and start writing.</Text>
       <Button onPress={ this.closeModal.bind(this)} title="Close"></Button>
       </View>
 
@@ -65,10 +65,16 @@ class Welcome extends Component {
       </Modal>
 
 
-      <View style={styles.buttonView}>
-      <Button onPress={this.openModal.bind(this)} title="What is Reframe?"/>
+      <View style={styles.buttonViewOuter}>
 
-      <Button onPress={this.goToLogin.bind(this)} title="Start Journaling"/>
+      <View style={styles.buttonViewInner}>
+      <Button onPress={this.openModal.bind(this)} color='#5A2B5E' title="What is Reframe?"/>
+      </View>
+
+      <View style={styles.buttonViewInner}>
+      <Button onPress={this.goToLogin.bind(this)} color='#5A2B5E' title="Start Journaling"/>
+      </View>
+
       </View>
 
       </View>
@@ -78,17 +84,21 @@ class Welcome extends Component {
 
 const styles = {
 
-  buttonView: {
-    alignItems: 'flex-end',
+  buttonViewOuter: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignContent: 'flex-end',
-    backgroundColor: '#D6E8F0'
-
+    // justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    height: 550
   },
-  button: {
-    backgroundColor: 'green',
-    alignContent: 'flex-end'
+  buttonViewInner: {
+    backgroundColor: '#D7EAF2',
+    flex: 2,
+    backgroundColor: '#C7DCE6',
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#C7DCE6',
+    marginLeft: 8,
+    marginRight: 8,
   },
   modalContainer: {
     flex: 1,
@@ -98,11 +108,19 @@ const styles = {
     paddingLeft: '30%'
   },
   innerContainer: {
-    alignItems: 'center',
+    alignItems: 'center'
   },
   text: {
     textAlign: 'center',
-
+    fontWeight: 'bold',
+    color: '#5A2B5E',
+    fontSize: 20,
+    paddingBottom: 15,
+    // fontStyle: '',
+    textShadowColor: 'gray'
+  },
+  closeButton: {
+    
   }
 };
 
