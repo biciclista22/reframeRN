@@ -43,7 +43,7 @@ class Quote extends Component {
   // }
 
 }
-// 
+//
 // const styles = {
 //   containerStyle: {
 //     borderBottomWidth: 1,

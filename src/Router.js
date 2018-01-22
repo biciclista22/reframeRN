@@ -4,6 +4,8 @@ import { Scene, Router, Actions} from 'react-native-router-flux';
 import LoginForm from './components/LoginForm';
 import EntryForm from './components/EntryForm';
 import EntryLog from './components/EntryLog';
+import Welcome from './components/Welcome';
+import About from './components/About';
 
 
 const RouterComponent = () => {
@@ -12,10 +14,12 @@ const RouterComponent = () => {
 
       <Scene key="root" hideNavBar>
         <Scene key="auth">
-          <Scene key="login" component={LoginForm} title="Welcome" initial/>
+          <Scene key="welcome" component={Welcome} title="Welcome" initial />
+          <Scene key="login" component={LoginForm} title="Reframe" />
+          <Scene key="about" component={About} title="About"/>
         </Scene>
 
-        <Scene key="main">
+        <Scene key="main" hideNavBar>
 
           <Scene
             rightTitle="Past Reframes"
@@ -32,6 +36,7 @@ const RouterComponent = () => {
 
         </Scene>
       </Scene>
+
     </Router>
   );
 };
