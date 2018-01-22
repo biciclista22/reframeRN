@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, AsyncStorage } from 'react-native';
+import { Alert, AsyncStorage, Image, View } from 'react-native';
 import { Button, Card, CardSection, Input, Spinner, Errors } from './common';
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
@@ -143,7 +143,20 @@ class LoginForm extends Component {
 
   render() {
     return (
+
+      <View>
+      <Image
+      style={{
+        flex: 1,
+        position: 'absolute',
+        resizeMode: 'contain',
+      }}
+      source={require('../../background1000.png')}
+      />
+
       <Card>
+
+
       <CardSection>
       <Input
       placeholder="user@gmail.com"
@@ -176,6 +189,7 @@ class LoginForm extends Component {
       <Errors errors={this.state.errors}/>
 
       </Card>
+      </View>
     );
   }
 }

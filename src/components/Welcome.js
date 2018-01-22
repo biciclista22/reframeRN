@@ -68,11 +68,11 @@ class Welcome extends Component {
       <View style={styles.buttonViewOuter}>
 
       <View style={styles.buttonViewInner}>
-      <Button onPress={this.openModal.bind(this)} color='#5A2B5E' title="What is Reframe?"/>
+      <Button onPress={this.openModal.bind(this)} color='#cc3b8b' title="What is Reframe?"/>
       </View>
 
       <View style={styles.buttonViewInner}>
-      <Button onPress={this.goToLogin.bind(this)} color='#5A2B5E' title="Start Journaling"/>
+      <Button onPress={this.goToLogin.bind(this)} color='#cc3b8b' title="Start Journaling"/>
       </View>
 
       </View>
@@ -113,7 +113,7 @@ const styles = {
   text: {
     textAlign: 'center',
     fontWeight: 'bold',
-    color: '#5A2B5E',
+    color: '#C3117C',
     fontSize: 20,
     paddingBottom: 15,
     // fontStyle: '',
