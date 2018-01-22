@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, TextInput, AsyncStorage, Text, View } from 'react-native';
+import { Alert, TextInput, AsyncStorage, Text, View, Image } from 'react-native';
 import { Button, Card, CardSection, Quote } from './common';
 import axios from 'axios';
 import { Actions} from 'react-native-router-flux';
@@ -47,7 +47,7 @@ class EntryForm extends Component {
   }
 
   renderQuote() {
-    return <Text>{this.state.quote} - {this.state.author}</Text>
+    return <Text style={{padding: 15}}>{this.state.quote}{"\n"} - {this.state.author}</Text>
   }
 
   async userLogout() {
@@ -68,11 +68,21 @@ class EntryForm extends Component {
 
   render() {
     return (
+      <View>
+        <Image
+        style={{
+          flex: 1,
+          position: 'absolute',
+          resizeMode: 'contain',
+        }}
+        source={require('../../background1000.png')}
+        />
+
       <Card>
 
-      <CardSection>
-      <View>{this.renderQuote()}</View>
-      </CardSection>
+
+      <View style={styles.quote}>{this.renderQuote()}</View>
+
 
       <CardSection>
       <TextInput
@@ -100,7 +110,15 @@ class EntryForm extends Component {
       </CardSection>
 
       </Card>
+      </View>
     );
+  }
+}
+
+styles = {
+  quote: {
+    // backgroundColor: 'clear',
+
   }
 }
 
