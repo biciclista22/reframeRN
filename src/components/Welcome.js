@@ -11,7 +11,6 @@ class Welcome extends Component {
     modalVisible: false,
   };
 
-
   openModal() {
     this.setState({modalVisible:true});
   }
