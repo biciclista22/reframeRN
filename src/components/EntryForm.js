@@ -45,13 +45,14 @@ class EntryForm extends Component {
       const apiQuote = await axios.get('https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en');
       console.log(apiQuote);
       this.setState({ quote: apiQuote.data.quoteText, author:apiQuote.data.quoteAuthor })
+
     } catch(error) {
       console.log('a try');
     }
   }
 
   renderQuote() {
-    return <Text style={{padding: 15}}> {this.state.quote} </Text>
+    return <Text style={{padding: 15, fontSize: 18}}> {this.state.quote} </Text>
 
   }
 
@@ -93,8 +94,10 @@ class EntryForm extends Component {
       />
 
       <Header
+      outerContainerStyles={styles.headerOuterContainer}
+      innerContainerStyles={styles.headerInnerContainer}
       leftComponent={{icon: 'spa', onPress: () => this.userLogout()}}
-      centerComponent={{ text: 'Reframe', style: { color: '#fff' }, onPress: () => this.getQuote() }}
+      centerComponent={{ text: 'Reframe', textSize: 14, style: { color: '#fff', fontSize: 18 }, onPress: () => this.getQuote() }}
       rightComponent={{ icon: 'today', color: '#fff', onPress: () => Actions.entryLog() }}
       />
 
@@ -133,7 +136,7 @@ class EntryForm extends Component {
 
 styles = {
   quote: {
-    backgroundColor: '#00e4ff',
+    backgroundColor: '#86A0D4',
     paddingBottom: 25,
     margin: 30
   },
@@ -150,6 +153,12 @@ styles = {
     marginLeft: 10,
     marginRight: 10,
     marginTop: 50,
+  },
+  headerOuterContainer: {
+    borderBottomWidth:0
+  },
+  headerInnerContainer: {
+    justifyContent: 'space-between'
   }
 }
 

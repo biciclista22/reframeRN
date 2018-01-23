@@ -5,16 +5,17 @@ import LoginForm from './components/LoginForm';
 import EntryForm from './components/EntryForm';
 import EntryLog from './components/EntryLog';
 import Welcome from './components/Welcome';
+import Icon from 'react-native-fa-icons';
 
 
 const RouterComponent = () => {
   return (
-    <Router navigationBarStyle={styles.navBar} titleStyle={styles.navTitle} sceneStyle={styles.routerScene}>
+    <Router navigationBarStyle={styles.navBar} titleStyle={styles.navTitle} sceneStyle={styles.routerScene} barButtonIconStyle={{ tintColor: 'green' }}>
 
-      <Scene key="root" hideNavBar>
-        <Scene key="auth">
-          <Scene key="welcome" component={Welcome} title="Reframe" initial hideNavBar/>
-          <Scene key="login" component={LoginForm} title="Reframe" />
+      <Scene key="root" hideNavBar  >
+        <Scene key="auth"  >
+          <Scene key="welcome" component={Welcome} initial hideNavBar  />
+          <Scene key="login" backButtonTintColor="white" backTitle=" " component={LoginForm} title="Reframe"   />
         </Scene>
 
         <Scene key="main" >
@@ -29,7 +30,7 @@ const RouterComponent = () => {
             hideNavBar
             />
 
-          <Scene key="entryLog" component={EntryLog} title="Past Reframes"/>
+          <Scene key="entryLog" component={EntryLog} backButtonTintColor="white" backTitle=" " title="Past Reframes"/>
 
         </Scene>
       </Scene>
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
     // flexDirection: 'row',
     // alignItems: 'center',
     // justifyContent: 'center',
-    backgroundColor: '#5A2B5E', // changing navbar color
+    backgroundColor: '#496FC2', // changing navbar color
   },
   navTitle: {
     color: 'white', // changing navbar title color
