@@ -83,32 +83,29 @@ class EntryForm extends Component {
     return (
       <View>
 
+      <Image
+      style={{
+        flex: 1,
+        position: 'absolute',
+        resizeMode: 'contain',
+      }}
+      source={require('../../background1000.png')}
+      />
 
-        <Image
-        style={{
-          flex: 1,
-          position: 'absolute',
-          resizeMode: 'contain',
-        }}
-        source={require('../../background1000.png')}
-        />
-
-
-        <Header
+      <Header
       leftComponent={{icon: 'spa', onPress: () => this.userLogout()}}
       centerComponent={{ text: 'Reframe', style: { color: '#fff' }, onPress: () => this.getQuote() }}
       rightComponent={{ icon: 'today', color: '#fff', onPress: () => Actions.entryLog() }}
-    />
-
+      />
 
 
       <View style={styles.quote}>
-        {this.renderQuote()}
-        {this.renderAuthor()}
+      {this.renderQuote()}
+      {this.renderAuthor()}
       </View>
 
-      <View/>
 
+      <View style={styles.entryView}>
 
       <CardSection>
       <TextInput
@@ -117,8 +114,6 @@ class EntryForm extends Component {
       style={{ height: 100, width: 350}}
       multiline={true}
       autoCorrect={true}
-      // lineHeight: 23
-      // fontSize: 18
       placeholder='Start reframing...'
       />
       </CardSection>
@@ -130,15 +125,31 @@ class EntryForm extends Component {
       </CardSection>
 
       </View>
+
+    </View>
     );
   }
 }
 
 styles = {
   quote: {
-    backgroundColor: 'transparent',
-    paddingBottom: 30
-
+    backgroundColor: '#00e4ff',
+    paddingBottom: 25,
+    margin: 30
+  },
+  entryView: {
+    borderWidth: 1,
+    borderRadius: 2, // rounded edges
+    borderColor: '#ddd',
+    borderBottomWidth: 0,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: .1,
+    shadowRadius: 2, // at corners of the shadow, will round them out
+    elevation: 1,
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 50,
   }
 }
 
