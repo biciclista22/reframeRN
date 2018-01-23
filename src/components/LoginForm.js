@@ -26,8 +26,9 @@ class LoginForm extends Component {
   }
 
   async onRegisterPressed() {
+
     try {
-      let response = await fetch('http://localhost:3000/users/signup', {
+      let response = await fetch('https://example-env.puazktppws.us-west-2.elasticbeanstalk.com/users/signup', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -76,15 +77,15 @@ class LoginForm extends Component {
   }
 
   async onLogin() {
+    console.log('trying to login');
     try {
       // crazy that changing from let to const got rid of the error
-      const response = await axios.get('http://localhost:3000/users/login', {
+      const response = await axios.get('http://example-env.puazktppws.us-west-2.elasticbeanstalk.com/users/login', {
         params: {
           email: this.state.email
         }
       })
 
-      // let res = await response.text();
       console.log(response);
 
       if (response.status >= 200 && response.status < 300) {
@@ -96,7 +97,7 @@ class LoginForm extends Component {
       }
 
     } catch(response) {
-      Alert.alert('You are not a user yet... Sign up!');
+      // Alert.alert('You are not a user yet... Sign up!');
       console.log(response);
     }
   }

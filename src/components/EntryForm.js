@@ -24,7 +24,7 @@ class EntryForm extends Component {
         let value = parseInt(result);
         axios({
           method: 'post',
-          url: 'http://localhost:3000/entries',
+          url: 'http://example-env.puazktppws.us-west-2.elasticbeanstalk.com//entries',
           data: {
             entry: {text: this.state.text, user_id: value}
           }

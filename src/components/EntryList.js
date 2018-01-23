@@ -14,7 +14,7 @@ class EntryList extends Component {
         let value = parseInt(result);
         console.log(value);
         console.log('now waiting to make the get request');
-        axios.get(`http://localhost:3000/users/`+value+`/entries`)
+        axios.get(`http://example-env.puazktppws.us-west-2.elasticbeanstalk.com/`+value+`/entries`)
         .then(response => {
           const monthsArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
