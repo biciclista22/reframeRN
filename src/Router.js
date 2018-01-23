@@ -26,6 +26,7 @@ const RouterComponent = () => {
             component={EntryForm}
             title="Entry"
             initial
+            hideNavBar
             />
 
           <Scene key="entryLog" component={EntryLog} title="Past Reframes"/>

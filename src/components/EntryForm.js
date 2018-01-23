@@ -3,6 +3,9 @@ import { Alert, TextInput, AsyncStorage, Text, View, Image } from 'react-native'
 import { Button, Card, CardSection, Quote } from './common';
 import axios from 'axios';
 import { Actions} from 'react-native-router-flux';
+import { Header } from 'react-native-elements';
+import Icon from 'react-native-fa-icons';
+import FontAwesome, { Icons } from 'react-native-fontawesome';
 
 
 class EntryForm extends Component {
@@ -72,9 +75,15 @@ class EntryForm extends Component {
     this.getQuote();
   }
 
+  renderLogoutComponent() {
+    return <Button onPress={this.userLogout}>  Sign out! </Button>
+  }
+
   render() {
     return (
       <View>
+
+
         <Image
         style={{
           flex: 1,
@@ -84,7 +93,13 @@ class EntryForm extends Component {
         source={require('../../background1000.png')}
         />
 
-      <Card>
+
+        <Header
+      leftComponent={{icon: 'spa', onPress: () => this.userLogout()}}
+      centerComponent={{ text: 'Reframe', style: { color: '#fff' }, onPress: () => this.getQuote() }}
+      rightComponent={{ icon: 'today', color: '#fff', onPress: () => Actions.entryLog() }}
+    />
+
 
 
       <View style={styles.quote}>
@@ -114,13 +129,6 @@ class EntryForm extends Component {
       </Button>
       </CardSection>
 
-      <CardSection>
-      <Button onPress={this.userLogout}>
-      Sign out!
-      </Button>
-      </CardSection>
-
-      </Card>
       </View>
     );
   }
