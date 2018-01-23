@@ -12,6 +12,7 @@ const RouterComponent = () => {
     <Router navigationBarStyle={styles.navBar} titleStyle={styles.navTitle} sceneStyle={styles.routerScene}>
 
       <Scene key="root" hideNavBar>
+
         <Scene key="auth">
           <Scene key="welcome" component={Welcome} title="Reframe" initial hideNavBar/>
           <Scene key="login" component={LoginForm} title="Reframe" />
@@ -27,10 +28,10 @@ const RouterComponent = () => {
             title="Entry"
             initial
             />
-
-          <Scene key="entryLog" component={EntryLog} title="Past Reframes"/>
-
+          <Scene key="entryLog" component={EntryLog} title="Past Reframes" />
         </Scene>
+
+
       </Scene>
 
     </Router>
