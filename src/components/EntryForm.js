@@ -123,7 +123,7 @@ class EntryForm extends Component {
 
       <CardSection>
       <Button onPress={this.buttonFunction.bind(this)} >
-      Log it!
+      Reframe!
       </Button>
       </CardSection>
 
