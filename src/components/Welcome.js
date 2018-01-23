@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Alert, Text, View, Modal, ImageBackground, Image, Button } from 'react-native';
 import { Card, CardSection } from './common';
 import { Actions } from 'react-native-router-flux';
+import { Icon } from 'react-native-elements';
 
 
 class Welcome extends Component {
@@ -58,7 +59,7 @@ class Welcome extends Component {
 
       <Text style={styles.text}>Reframe is a gratitude journal app, an opportunity to reframe your day, the events and people that make it special!!!</Text>
       <Text style={styles.text}>Keep it simple. Create an account or login and start writing.</Text>
-      <Button onPress={ this.closeModal.bind(this)} title="Close"></Button>
+      <Icon onPress={ this.closeModal.bind(this)} name='close' />
       </View>
 
       </View>

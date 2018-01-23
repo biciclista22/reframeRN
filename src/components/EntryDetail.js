@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { Card } from './common/Card';
 import { CardSection } from './common/CardSection';
-import { Icon } from 'react-native-elements'
+import { Icon } from 'react-native-elements';
 
 const EntryDetail = (props) => {
   return (
