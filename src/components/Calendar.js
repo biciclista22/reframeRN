@@ -68,20 +68,14 @@ class Calendar extends Component {
 
             if (!this.state.items[agendaEntryYear]) {
               this.state.items[agendaEntryYear] = [];
-              let height = 150;
-              if (response.data[i].text.length > 120) {
-                height = 200
-              }
               this.state.items[agendaEntryYear].push({
                 stringDate: stringDate,
                 text: response.data[i].text,
-                height: height
               });
             } else {
               this.state.items[agendaEntryYear].push({
                 stringDate: stringDate,
                 text: response.data[i].text,
-                // height: Math.max(50, Math.floor(Math.random() * 150))
               });
             }
 
@@ -105,15 +99,9 @@ class Calendar extends Component {
     });
   }
 
-  // renderEntries() {
-  //   return this.state.entries.map(entry =>
-  //     < EntryDetail key={entry.id} entry={entry}/>
-  //   );
-  // }
-  //
   renderItem(item) {
     return (
-      <View style={[styles.item, {height: item.height}]}>
+      <View style={[styles.item]}>
         <Text>{item.text}</Text></View>
     );
   }
