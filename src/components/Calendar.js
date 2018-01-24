@@ -44,6 +44,9 @@ class Calendar extends Component {
 
           for (i = 0; i < response.data.length; i++) {
             let date = new Date(response.data[i].created_at);
+            console.log(date);
+            console.log(date.getHours());
+            console.log(date.getMinutes());
 
             let month = monthsArray[date.getMonth()];
 
@@ -62,6 +65,23 @@ class Calendar extends Component {
                 monthNum='0'+monthNum;
             }
 
+            let minutes = date.getMinutes();
+
+            if (minutes < 10) {
+              minutes = `0${minutes}`
+            }
+
+            let hour = date.getHours();
+
+            let time = '';
+
+            if (hour > 12 ) {
+              hour = hour - 12
+              time = `${hour}:${minutes} PM`
+            } else {
+              time = `${hour}:${minutes} AM`
+            }
+
             let agendaEntryYear = `${year}-${monthNum}-${dd}`;
 
             let stringDate = `${month} ${day}, ${year}`;
@@ -71,11 +91,13 @@ class Calendar extends Component {
               this.state.items[agendaEntryYear].push({
                 stringDate: stringDate,
                 text: response.data[i].text,
+                time: time
               });
             } else {
               this.state.items[agendaEntryYear].push({
                 stringDate: stringDate,
                 text: response.data[i].text,
+                time: time
               });
             }
 
@@ -102,7 +124,7 @@ class Calendar extends Component {
   renderItem(item) {
     return (
       <View style={[styles.item]}>
-        <Text>{item.text}</Text></View>
+        <Text style={{fontSize: 10, paddingBottom: 5}}>{item.time}</Text><Text size={{fontSize: 15}}>{item.text}</Text></View>
     );
   }
   renderEmptyDate() {
