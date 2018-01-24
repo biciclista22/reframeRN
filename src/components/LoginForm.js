@@ -149,14 +149,14 @@ class LoginForm extends Component {
       style={{
         flex: 1,
         position: 'absolute',
-        resizeMode: 'contain',
+        resizeMode: 'repeat',
       }}
-      source={require('../../background1000.png')}
+      source={require('../../transparent_lenses.png')}
       />
 
       <Card>
 
-  
+
 
 
       <CardSection>
