@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { ScrollView, Text, AsyncStorage, View, Image } from 'react-native';
+import { ScrollView, Text, AsyncStorage, View, Image, Button } from 'react-native';
 import axios from 'axios';
 import EntryDetail from './EntryDetail';
+import { Agenda } from 'react-native-calendars';
 
 class EntryList extends Component {
   state = { entries: [] }
@@ -59,11 +60,39 @@ class EntryList extends Component {
         }}
         source={require('../../background1000.png')}
         />
+
+
         <ScrollView>
-        {this.renderEntries()}
+        <View style={styles.calendarStyle}>
+
+        <Agenda
+        items={{'2018-01-22': [{text: 'item 1 - any js object'}],
+            '2018-01-23': [{text: 'item 2 - any js object'}],
+            '2018-01-24': [],
+            '2018-01-25': [{text: 'item 3 - any js object'}],
+	           }}
+        loadItemsForMonth={(month) => {console.log('trigger items loading')}}
+        onDayPress={(day)=>{console.log('day pressed')}}
+				selected={'2018-01-23'}
+        renderItem={item => <View><Text>Hello</Text></View>}
+        renderDay={(day, item) => <View />}
+        renderEmptyDate={() => <View />}
+        rowHasChanged={(r1, r2) => (r1.text !== r2.text)}
+        hideKnob={true}
+        theme={{}}
+        style={{}}
+        />
+        </View>
+        <Button onPress={this.renderEntries()} title="View all Entries"></Button>
         </ScrollView>
         </View>
       );
+    }
+  }
+
+  const styles = {
+    calendarStyle: {
+      padding: 10
     }
   }
 
