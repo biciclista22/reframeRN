@@ -6,6 +6,7 @@ import EntryForm from './components/EntryForm';
 import EntryLog from './components/EntryLog';
 import Welcome from './components/Welcome';
 import Icon from 'react-native-fa-icons';
+import Calendar from './components/Calendar';
 
 
 const RouterComponent = () => {
@@ -30,7 +31,7 @@ const RouterComponent = () => {
             hideNavBar
             />
 
-          <Scene key="entryLog" component={EntryLog} backButtonTintColor="white" backTitle=" " title="Past Reframes"/>
+          <Scene key="entryLog" component={Calendar} backButtonTintColor="white" backTitle=" " title="Past Reframes"/>
 
         </Scene>
       </Scene>

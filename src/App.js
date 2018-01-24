@@ -6,7 +6,9 @@ import LoginForm from './components/LoginForm';
 import USER_ID from './global.js';
 import Router from './Router';
 import EntryLog from './components/EntryLog';
-import EntryList from './components/EntryList';
+// import EntryList from './components/EntryList';
+import Calendar from './components/Calendar';
+
 
 class App extends Component {
   render() {
