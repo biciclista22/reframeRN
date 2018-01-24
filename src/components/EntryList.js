@@ -3,6 +3,8 @@ import { ScrollView, Text, AsyncStorage, View, Image } from 'react-native';
 import axios from 'axios';
 import EntryDetail from './EntryDetail';
 import { Agenda } from 'react-native-calendars';
+import { Icon } from 'react-native-elements';
+
 
 class EntryList extends Component {
   state = { entries: [], items: {}, items: {} }
@@ -75,7 +77,7 @@ class EntryList extends Component {
               this.state.items[agendaEntryYear].push({
                 stringDate: stringDate,
                 text: response.data[i].text,
-                height: Math.max(50, Math.floor(Math.random() * 150))
+                // height: Math.max(50, Math.floor(Math.random() * 150))
               });
             }
 
@@ -93,6 +95,7 @@ class EntryList extends Component {
           this.setState({
             items: newItems
           });
+          console.log(this.state.items);
         }); // end of the then
       }
     });
@@ -106,7 +109,8 @@ class EntryList extends Component {
   //
   renderItem(item) {
     return (
-      <View style={[styles.item, {height: item.height}]}><Text>{item.text}</Text></View>
+      <View style={[styles.item, {height: 80}]}>
+        <Text>{item.text}</Text></View>
     );
   }
   renderEmptyDate() {
@@ -116,34 +120,6 @@ class EntryList extends Component {
   }
   rowHasChanged(r1, r2) {
     return r1.name !== r2.name;
-  }
-
-  loadItems(day) {
-    setTimeout(() => {
-      for (let i = -15; i < 85; i++) {
-        const time = day.timestamp + i * 24 * 60 * 60 * 1000;
-        const strTime = this.timeToString(time);
-        // console.log(strTime);
-        if (!this.state.items[strTime]) {
-          this.state.items[strTime] = [];
-          const numItems = Math.floor(Math.random() * 5);
-          for (let j = 0; j < numItems; j++) {
-            this.state.items[strTime].push({
-              name: 'Item for ' + strTime,
-              height: Math.max(50, Math.floor(Math.random() * 150))
-            });
-          }
-        }
-      }
-      // console.log(this.state.items);
-      const newItems = {};
-      Object.keys(this.state.items).forEach(key => {newItems[key] = this.state.items[key];});
-      this.setState({
-        items: newItems
-      });
-    }, 1000);
-    // console.log(`Load Items for ${day.year}-${day.month}`);
-    console.log(this.state.items);
   }
 
   timeToString(time) {
