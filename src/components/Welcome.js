@@ -33,7 +33,7 @@ class Welcome extends Component {
         position: 'absolute',
         resizeMode: 'cover',
       }}
-      source={require('../../welcome.png')}>
+      source={require('../../Welcomecamera.png')}>
       </Image>
 
       <Modal
@@ -48,31 +48,39 @@ class Welcome extends Component {
       <Image
       style={{
         flex: 1,
-        position: 'absolute',
-        resizeMode: 'contain',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: null,
+        height: null,
+        // position: 'absolute',
+        // resizeMode: 'contain',
       }}
-      source={require('../../background1000.png')}
+      source={require('../../about.png')}
       >
+
       </Image>
-      <View style={styles.innerContainer}>
-
-      <Text style={styles.text}>Reframe is a gratitude journal app, an opportunity to reframe your day, the events and people that make it special!!!</Text>
-      <Text style={styles.text}>Keep it simple. Create an account or login and start writing.</Text>
-      <Icon onPress={ this.closeModal.bind(this)} name='close' />
+      <View style={styles.closeButton}>
+      <Button
+        onPress={() => this.closeModal()}
+        title="Close"
+        color="#E0CCEE"
+       >
+      </Button>
       </View>
 
       </View>
+
       </Modal>
 
 
       <View style={styles.buttonViewOuter}>
 
       <View style={styles.buttonViewInner}>
-      <Button onPress={this.openModal.bind(this)} color='#cc3b8b' title="What is Reframe?"/>
+      <Button onPress={this.openModal.bind(this)} color='white' title="What is Reframe?"/>
       </View>
 
       <View style={styles.buttonViewInner}>
-      <Button onPress={this.goToLogin.bind(this)} color='#cc3b8b' title="Start Journaling"/>
+      <Button onPress={this.goToLogin.bind(this)} color='white' title="Start Journaling"/>
       </View>
 
       </View>
@@ -88,27 +96,22 @@ const styles = {
     flexDirection: 'row',
     // justifyContent: 'flex-end',
     alignItems: 'flex-end',
-    height: 650
+    height: 650,
+    backgroundColor: 'transparent'
   },
   buttonViewInner: {
-    backgroundColor: '#D7EAF2',
+    backgroundColor: '#496FC2',
     flex: 2,
-    backgroundColor: '#C7DCE6',
     borderRadius: 5,
     borderWidth: 1,
     borderColor: '#C7DCE6',
     marginLeft: 8,
     marginRight: 8,
+
   },
   modalContainer: {
     flex: 1,
     justifyContent: 'center',
-    height: '80%',
-    width: '80%',
-    paddingLeft: '30%'
-  },
-  innerContainer: {
-    alignItems: 'center'
   },
   text: {
     textAlign: 'center',
@@ -116,11 +119,20 @@ const styles = {
     color: '#C3117C',
     fontSize: 20,
     paddingBottom: 15,
-    // fontStyle: '',
     textShadowColor: 'gray'
   },
   closeButton: {
-
+    // flex: 1,
+    // alignSelf: 'stretch',
+    backgroundColor: '#496FC2',
+    // borderRadius: 5,
+    // borderWidth: 1,
+    // borderColor: '#C7DCE6',
+    // marginLeft: 5,
+    // marginRight: 5,
+    // borderRadius: 5,
+    // borderWidth: 1,
+    // borderColor: 'purple',
   }
 };
 

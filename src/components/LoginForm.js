@@ -3,6 +3,8 @@ import { Alert, AsyncStorage, Image, View } from 'react-native';
 import { Button, Card, CardSection, Input, Spinner, Errors } from './common';
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
+import { Icon } from 'react-native-elements';
+
 
 const USER_ID = 'userId';
 
@@ -160,6 +162,7 @@ class LoginForm extends Component {
 
 
       <CardSection>
+      <Icon name='person'/>
       <Input
       placeholder="user@gmail.com"
       label="Email"
@@ -169,6 +172,7 @@ class LoginForm extends Component {
       </CardSection>
 
       <CardSection>
+      <Icon name='fingerprint'/>
       <Input
       secureTextEntry={true}
       placeholder="password"

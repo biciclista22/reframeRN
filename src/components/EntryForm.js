@@ -88,9 +88,10 @@ class EntryForm extends Component {
       style={{
         flex: 1,
         position: 'absolute',
-        resizeMode: 'contain',
+        resizeMode: 'cover',
+        paddingBottom: 100
       }}
-      source={require('../../background1000.png')}
+      source={require('../../cameralenstransparent.png')}
       />
 
       <Header
