@@ -104,8 +104,10 @@ class EntryForm extends Component {
 
 
       <View style={styles.quote}>
+      <View style={styles.circleShapeView}>
       {this.renderQuote()}
       {this.renderAuthor()}
+      </View>
       </View>
 
 
@@ -137,10 +139,20 @@ class EntryForm extends Component {
 
 styles = {
   quote: {
-    backgroundColor: '#86A0D4',
-    paddingBottom: 25,
-    margin: 30
+    // backgroundColor: '#86A0D4',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 10
+    // paddingBottom: 25,
+    // margin: 30
   },
+  circleShapeView: {
+    width: 150,
+    height: 150,
+    borderRadius: 150/2,
+    backgroundColor: '#00BCD4'
+},
   entryView: {
     borderWidth: 1,
     borderRadius: 2, // rounded edges
