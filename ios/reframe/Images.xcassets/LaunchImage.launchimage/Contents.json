@@ -4,7 +4,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "2436h",
-      "filename" : "1125x2436 Reframe.png",
+      "filename" : "1125x2436Reframe .png",
       "minimum-system-version" : "11.0",
       "orientation" : "portrait",
       "scale" : "3x"
@@ -13,7 +13,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "2436h",
-      "filename" : "2436x1136 Reframe.png",
+      "filename" : "2436x1125Reframe.png",
       "minimum-system-version" : "11.0",
       "orientation" : "landscape",
       "scale" : "3x"
@@ -22,7 +22,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "736h",
-      "filename" : "1242x2208 Reframe.png",
+      "filename" : "1242x2208Reframe.png",
       "minimum-system-version" : "8.0",
       "orientation" : "portrait",
       "scale" : "3x"
@@ -31,7 +31,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "736h",
-      "filename" : "2208x1242 Reframe.png",
+      "filename" : "2208x1242Reframe.png",
       "minimum-system-version" : "8.0",
       "orientation" : "landscape",
       "scale" : "3x"
@@ -40,7 +40,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "667h",
-      "filename" : "750x1334 Reframe.png",
+      "filename" : "750x1334Reframe.png",
       "minimum-system-version" : "8.0",
       "orientation" : "portrait",
       "scale" : "2x"
@@ -48,7 +48,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "640x960 Reframe.png",
+      "filename" : "640x960 copy.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
@@ -57,7 +57,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "retina4",
-      "filename" : "640x1136 Reframe.png",
+      "filename" : "640x1136Reframe.png",
       "minimum-system-version" : "7.0",
       "orientation" : "portrait",
       "scale" : "2x"
@@ -65,21 +65,21 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "320x480 Reframe.png",
+      "filename" : "320x480Reframe.png",
       "extent" : "full-screen",
       "scale" : "1x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "640x960 Reframe-1.png",
+      "filename" : "640x960.png",
       "extent" : "full-screen",
       "scale" : "2x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "640x1136 Reframe-1.png",
+      "filename" : "640x1136Reframe-1.png",
       "extent" : "full-screen",
       "subtype" : "retina4",
       "scale" : "2x"
