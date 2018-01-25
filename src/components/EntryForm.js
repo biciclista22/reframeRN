@@ -115,7 +115,7 @@ class EntryForm extends Component {
       <TextInput
       value={this.state.text}
       onChangeText={text => this.setState({text})}
-      style={{ height: 100, width: 350}}
+      style={{ height: 200, width: 350}}
       multiline={true}
       autoCorrect={true}
       placeholder='Start reframing...'

@@ -124,7 +124,7 @@ class Calendar extends Component {
   renderItem(item) {
     return (
       <View style={[styles.item]}>
-        <Text style={{fontSize: 10, paddingBottom: 5}}>{item.time}</Text><Text size={{fontSize: 15}}>{item.text}</Text></View>
+        <Text style={{fontSize: 10, paddingBottom: 5}}>{item.time} ~</Text><Text size={{fontSize: 15}}>{item.text}</Text></View>
     );
   }
   renderEmptyDate() {
@@ -150,7 +150,7 @@ class Calendar extends Component {
       renderItem={this.renderItem.bind(this)}
       renderEmptyDate={this.renderEmptyDate.bind(this)}
       rowHasChanged={this.rowHasChanged.bind(this)}
-      theme={{calendarBackground: '#E0CCEE',  textSectionTitleColor: 'purple', monthTextColor: '#496FC2', agendaKnobColor: 'purple', backgroundColor: '#b2d8ed', agendaDayNumColor: 'purple', agendaDayTextColor: '#496FC2',}}
+      theme={{calendarBackground: '#B8B4F9',  textSectionTitleColor: 'purple', monthTextColor: '#496FC2', agendaKnobColor: 'purple', backgroundColor: '#b2d8ed', agendaDayNumColor: 'purple', agendaDayTextColor: '#496FC2',}}
       />
     );
   }
