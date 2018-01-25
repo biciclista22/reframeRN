@@ -97,9 +97,9 @@ class EntryForm extends Component {
       <Header
       outerContainerStyles={styles.headerOuterContainer}
       innerContainerStyles={styles.headerInnerContainer}
-      leftComponent={{icon: 'spa', onPress: () => this.userLogout()}}
+      rightComponent={{icon: 'eject', onPress: () => this.userLogout()}}
       centerComponent={{ text: 'Reframe', textSize: 14, style: { color: '#fff', fontSize: 18 }, onPress: () => this.getQuote() }}
-      rightComponent={{ icon: 'today', color: '#fff', onPress: () => Actions.entryLog() }}
+      leftComponent={{ icon: 'today', color: '#fff', onPress: () => Actions.entryLog() }}
       />
 
 
